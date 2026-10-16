@@ -1,0 +1,533 @@
+/* ==========================================================
+   MoMo MTN - custom styles
+   Layout utilities come from Tailwind (CDN). Components below
+   use BEM names and read colours from the @theme in index.html
+   via var(--color-...), so the palette is changed in one place.
+   ========================================================== */
+
+/* ---------- Base ---------- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* keeps headings clear of the sticky header */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-brand-500);
+    outline-offset: 2px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+/* ---------- Buttons ---------- */
+.button {
+    display: inline-block;
+    padding: 0.875rem 1.75rem;
+    border: 2px solid transparent;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.button--primary {
+    background-color: var(--color-brand-500);
+    color: #fff;
+}
+
+.button--primary:hover {
+    background-color: var(--color-brand-600);
+}
+
+.button--light {
+    border-color: #fff;
+    color: #fff;
+}
+
+.button--light:hover {
+    background-color: #fff;
+    color: var(--color-brand-900);
+}
+
+.button--outline {
+    border-color: var(--color-brand-500);
+    color: var(--color-brand-600);
+}
+
+.button--outline:hover {
+    background-color: var(--color-brand-50);
+}
+
+/* ---------- Header and navigation ---------- */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-line);
+}
+
+.header__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.25rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-brand-900);
+}
+
+.logo__mark {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+    background-color: var(--color-brand-900);
+    color: #fff;
+    font-size: 1.125rem;
+}
+
+.header__toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.header__toggle-bar {
+    width: 1.5rem;
+    height: 2px;
+    background-color: var(--color-ink);
+}
+
+/* Mobile: the menu drops down under the header */
+.nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 5%;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-line);
+}
+
+.nav--open {
+    display: flex;
+}
+
+.nav__link {
+    padding: 0.75rem 0;
+    font-weight: 500;
+    color: var(--color-ink);
+}
+
+.nav__link:hover {
+    color: var(--color-brand-500);
+}
+
+.nav__cta {
+    margin-top: 0.5rem;
+}
+
+/* Desktop: menu sits in a row, toggle button is hidden */
+@media (min-width: 64rem) {
+    .header__toggle { display: none; }
+
+    .nav {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+        padding: 0;
+        border: 0;
+    }
+
+    .nav__link { padding: 0; }
+    .nav__cta { margin: 0; padding: 0.625rem 1.25rem; }
+}
+
+/* ---------- Hero steps ---------- */
+.steps {
+    display: grid;
+    gap: 2rem;
+    padding-left: 2rem;
+    border-left: 1px solid rgb(255 255 255 / 0.25);
+}
+
+.steps__item {
+    display: flex;
+    gap: 1rem;
+}
+
+.steps__number {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--color-brand-500);
+    font-weight: 600;
+}
+
+.steps__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.steps__text {
+    margin-top: 0.25rem;
+    color: var(--color-brand-100);
+}
+
+/* ---------- Stats ---------- */
+.stat {
+    padding-inline: 1rem;
+    text-align: center;
+}
+
+.stat__value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-brand-900);
+}
+
+.stat__label {
+    order: 2;
+    color: var(--color-muted);
+}
+
+.stat { display: flex; flex-direction: column; }
+
+/* ---------- Sections ---------- */
+.section {
+    padding-block: 5rem;
+}
+
+.section--tinted {
+    background-color: var(--color-surface);
+}
+
+.section__header {
+    max-width: 40rem;
+    margin-bottom: 3.5rem;
+}
+
+.section__title {
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-brand-900);
+}
+
+.section__text {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    color: var(--color-muted);
+}
+
+/* ---------- Features ---------- */
+.feature {
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--color-brand-500);
+}
+
+.feature__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.feature__text {
+    margin-top: 0.5rem;
+    color: var(--color-muted);
+}
+
+/* ---------- Forms ---------- */
+.field__label {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+.field__input {
+    width: 100%;
+    padding: 0.75rem 0.875rem;
+    border: 1px solid var(--color-line);
+    border-radius: 0.375rem;
+    background-color: #fff;
+    font: inherit;
+    color: var(--color-ink);
+}
+
+.field__input:focus {
+    border-color: var(--color-brand-500);
+}
+
+.field__input[aria-invalid="true"] {
+    border-color: var(--color-danger);
+}
+
+.field__error {
+    min-height: 0;
+    margin-top: 0.375rem;
+    font-size: 0.875rem;
+    color: var(--color-danger);
+}
+
+.field__check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    cursor: pointer;
+}
+
+.field__check input {
+    margin-top: 0.25rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    accent-color: var(--color-brand-500);
+}
+
+/* ---------- Eligibility result ---------- */
+.eligibility__output {
+    align-self: start;
+    padding-left: 1.5rem;
+    border-left: 4px solid var(--color-line);
+}
+
+.eligibility__output--approved { border-left-color: var(--color-success); }
+.eligibility__output--partial  { border-left-color: var(--color-brand-500); }
+.eligibility__output--declined { border-left-color: var(--color-danger); }
+
+.result__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-brand-900);
+}
+
+.result__text {
+    margin-top: 0.75rem;
+    color: var(--color-muted);
+}
+
+.result__amount {
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-brand-900);
+}
+
+.result__list {
+    margin-top: 1.25rem;
+    padding-left: 1.25rem;
+    list-style: disc;
+    color: var(--color-muted);
+}
+
+.result__list li + li {
+    margin-top: 0.375rem;
+}
+
+.result__actions {
+    margin-top: 1.5rem;
+}
+
+/* ---------- Calculator ---------- */
+.calculator {
+    display: grid;
+    gap: 3rem;
+}
+
+.calculator__form {
+    display: grid;
+    gap: 1.5rem;
+    align-content: start;
+}
+
+.calculator__result {
+    padding: 2.5rem 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-brand-900);
+    color: #fff;
+}
+
+.calculator__label {
+    color: var(--color-brand-100);
+}
+
+.calculator__value {
+    margin-top: 0.5rem;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
+}
+
+.calculator__details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgb(255 255 255 / 0.25);
+}
+
+.calculator__details dt {
+    font-size: 0.875rem;
+    color: var(--color-brand-100);
+}
+
+.calculator__details dd {
+    margin-top: 0.25rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.calculator__note {
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: var(--color-brand-100);
+}
+
+@media (min-width: 64rem) {
+    .calculator { grid-template-columns: 1fr 1fr; align-items: stretch; }
+}
+
+/* ---------- Countries ---------- */
+.countries {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--color-line);
+}
+
+.countries__item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-line);
+    font-weight: 600;
+}
+
+.countries__code {
+    display: inline-block;
+    min-width: 2.5rem;
+    color: var(--color-brand-500);
+}
+
+@media (min-width: 40rem) {
+    .countries { grid-template-columns: repeat(4, 1fr); column-gap: 2rem; }
+}
+
+/* ---------- Testimonials ---------- */
+.testimonials {
+    max-width: 48rem;
+}
+
+.testimonial__quote {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    line-height: 1.5;
+    color: var(--color-ink);
+}
+
+.testimonial__author {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    color: var(--color-muted);
+}
+
+.testimonial__author strong {
+    color: var(--color-ink);
+}
+
+.testimonials__dots {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.testimonials__dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--color-line);
+    cursor: pointer;
+}
+
+.testimonials__dot--active {
+    background-color: var(--color-brand-500);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    background-color: var(--color-ink);
+    color: var(--color-brand-100);
+}
+
+.footer__grid {
+    display: grid;
+    gap: 2.5rem;
+    padding-block: 4rem;
+}
+
+.footer__title {
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.footer__text {
+    max-width: 24rem;
+}
+
+.footer__list {
+    display: grid;
+    gap: 0.625rem;
+}
+
+.footer__list a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer__bottom {
+    display: grid;
+    gap: 0.5rem;
+    padding-block: 1.5rem;
+    border-top: 1px solid rgb(255 255 255 / 0.15);
+    font-size: 0.875rem;
+    color: var(--color-brand-100);
+    opacity: 0.75;
+}
+
+@media (min-width: 48rem) {
+    .footer__grid { grid-template-columns: 1.5fr 1fr 1fr 1.2fr; }
+}

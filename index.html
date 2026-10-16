@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MoMo MTN | Digital finance across MTN MoMo countries</title>
+    <meta name="description" content="Check your eligibility, estimate repayments and apply for digital finance across supported MTN MoMo markets.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS v4 via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!--
+        GLOBAL THEME: change a colour here and it updates everywhere.
+        "static" tells Tailwind to always output these variables,
+        so our own styles.css can use them with var(--color-name).
+    -->
+    <style type="text/tailwindcss">
+        @theme static {
+            --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+            /* Brand: deep navy to blue */
+            --color-brand-50: #eef4fc;
+            --color-brand-100: #d9e6f8;
+            --color-brand-500: #2563c9;
+            --color-brand-600: #1d4fa8;
+            --color-brand-700: #173f87;
+            --color-brand-900: #0b1f3a;
+
+            /* Neutrals */
+            --color-ink: #0f172a;
+            --color-muted: #5b6678;
+            --color-line: #dde3ec;
+            --color-surface: #f5f7fa;
+
+            /* Status */
+            --color-success: #0f766e;
+            --color-danger: #b42318;
+        }
+    </style>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="font-sans text-ink bg-white antialiased">
+
+    <!-- ============ HEADER ============ -->
+    <header class="header">
+        <div class="container header__bar">
+            <a href="#home" class="logo" aria-label="MoMo MTN home">
+                <span class="logo__mark" aria-hidden="true">M</span>
+                <span class="logo__text">MoMo MTN</span>
+            </a>
+
+            <button class="header__toggle" id="menu-toggle" type="button"
+                    aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle menu">
+                <span class="header__toggle-bar"></span>
+                <span class="header__toggle-bar"></span>
+                <span class="header__toggle-bar"></span>
+            </button>
+
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+                <a class="nav__link" href="#home">Home</a>
+                <a class="nav__link" href="#features">Features</a>
+                <a class="nav__link" href="#eligibility">Eligibility</a>
+                <a class="nav__link" href="#calculator">Loan Calculator</a>
+                <a class="nav__link" href="#countries">Countries</a>
+                <a class="nav__link" href="#contact">Contact</a>
+                <a class="button button--primary nav__cta" href="#eligibility">Apply Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============ HERO ============ -->
+        <section id="home" class="bg-brand-900 text-white">
+            <div class="container grid gap-14 py-20 md:py-28 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+                <div>
+                    <h1 class="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+                        Fast, secure digital finance across MTN MoMo countries
+                    </h1>
+                    <p class="mt-6 max-w-xl text-lg text-brand-100">
+                        Apply for loans, repay instantly and manage your money from your phone.
+                    </p>
+                    <div class="mt-10 flex flex-wrap gap-4">
+                        <a href="#eligibility" class="button button--primary">Apply Now</a>
+                        <a href="#eligibility" class="button button--light">Check Eligibility</a>
+                    </div>
+                </div>
+
+                <ol class="steps">
+                    <li class="steps__item">
+                        <span class="steps__number">1</span>
+                        <div>
+                            <h2 class="steps__title">Check your eligibility</h2>
+                            <p class="steps__text">Answer a few questions. It takes about a minute.</p>
+                        </div>
+                    </li>
+                    <li class="steps__item">
+                        <span class="steps__number">2</span>
+                        <div>
+                            <h2 class="steps__title">Choose your amount</h2>
+                            <p class="steps__text">Use the calculator to see your monthly repayment.</p>
+                        </div>
+                    </li>
+                    <li class="steps__item">
+                        <span class="steps__number">3</span>
+                        <div>
+                            <h2 class="steps__title">Apply from your phone</h2>
+                            <p class="steps__text">Complete your application without visiting a branch.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ============ STATS ============ -->
+        <section class="border-b border-line" aria-label="Platform at a glance">
+            <dl class="container grid grid-cols-2 gap-y-8 py-12 lg:grid-cols-4">
+                <div class="stat">
+                    <dt class="stat__label">Customers</dt>
+                    <dd class="stat__value">25,000+</dd>
+                </div>
+                <div class="stat">
+                    <dt class="stat__label">Processed</dt>
+                    <dd class="stat__value">$5M+</dd>
+                </div>
+                <div class="stat">
+                    <dt class="stat__label">MTN countries</dt>
+                    <dd class="stat__value">8</dd>
+                </div>
+                <div class="stat">
+                    <dt class="stat__label">Secure service</dt>
+                    <dd class="stat__value">24/7</dd>
+                </div>
+            </dl>
+        </section>
+
+        <!-- ============ FEATURES ============ -->
+        <section id="features" class="section">
+            <div class="container">
+                <header class="section__header">
+                    <h2 class="section__title">Everything you need in one place</h2>
+                    <p class="section__text">Simple digital financial services designed to make managing your money easier and faster.</p>
+                </header>
+
+                <div class="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+                    <article class="feature">
+                        <h3 class="feature__title">Quick loans</h3>
+                        <p class="feature__text">Apply for financing through a simple and clear online process.</p>
+                    </article>
+                    <article class="feature">
+                        <h3 class="feature__title">Fast processing</h3>
+                        <p class="feature__text">Get your application reviewed quickly and receive a decision without delay.</p>
+                    </article>
+                    <article class="feature">
+                        <h3 class="feature__title">Secure platform</h3>
+                        <p class="feature__text">Your financial information is handled using strong security practices.</p>
+                    </article>
+                    <article class="feature">
+                        <h3 class="feature__title">Mobile friendly</h3>
+                        <p class="feature__text">Access the platform conveniently from your smartphone, tablet or computer.</p>
+                    </article>
+                    <article class="feature">
+                        <h3 class="feature__title">Track your finance</h3>
+                        <p class="feature__text">Keep track of applications, repayments and financial activity.</p>
+                    </article>
+                    <article class="feature">
+                        <h3 class="feature__title">Customer support</h3>
+                        <p class="feature__text">Get assistance whenever you need help using our services.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ELIGIBILITY (main feature) ============ -->
+        <section id="eligibility" class="section section--tinted">
+            <div class="container">
+                <header class="section__header">
+                    <h2 class="section__title">Check your eligibility</h2>
+                    <p class="section__text">Answer a few questions to see if you qualify and how much you could borrow. Checking does not affect anything.</p>
+                </header>
+
+                <div class="grid gap-14 lg:grid-cols-2">
+                    <form class="eligibility__form" id="eligibility-form" novalidate>
+                        <div class="grid gap-6 sm:grid-cols-2">
+                            <div class="field sm:col-span-2">
+                                <label class="field__label" for="full-name">Full name</label>
+                                <input class="field__input" id="full-name" name="fullName" type="text"
+                                       autocomplete="name" placeholder="e.g. Ama Mensah" aria-describedby="full-name-error">
+                                <p class="field__error" id="full-name-error"></p>
+                            </div>
+
+                            <div class="field">
+                                <label class="field__label" for="country">Country</label>
+                                <select class="field__input" id="country" name="country" aria-describedby="country-error">
+                                    <option value="">Select country</option>
+                                </select>
+                                <p class="field__error" id="country-error"></p>
+                            </div>
+
+                            <div class="field">
+                                <label class="field__label" for="phone">MoMo phone number</label>
+                                <input class="field__input" id="phone" name="phone" type="tel"
+                                       autocomplete="tel" inputmode="tel" placeholder="Select a country first" aria-describedby="phone-error">
+                                <p class="field__error" id="phone-error"></p>
+                            </div>
+
+                            <div class="field">
+                                <label class="field__label" for="age">Your age</label>
+                                <input class="field__input" id="age" name="age" type="number"
+                                       inputmode="numeric" placeholder="e.g. 28" aria-describedby="age-error">
+                                <p class="field__error" id="age-error"></p>
+                            </div>
+
+                            <div class="field">
+                                <label class="field__label" for="account-age">MoMo account age (months)</label>
+                                <input class="field__input" id="account-age" name="accountAge" type="number"
+                                       inputmode="numeric" placeholder="e.g. 8" aria-describedby="account-age-error">
+                                <p class="field__error" id="account-age-error"></p>
+                            </div>
+
+                            <div class="field">
+                                <label class="field__label" for="monthly-volume">Average monthly MoMo activity (USD)</label>
+                                <input class="field__input" id="monthly-volume" name="monthlyVolume" type="number"
+                                       inputmode="decimal" placeholder="e.g. 200" aria-describedby="monthly-volume-error">
+                                <p class="field__error" id="monthly-volume-error"></p>
+                            </div>
+
+                            <div class="field">
+                                <label class="field__label" for="requested-amount">Amount you want (USD)</label>
+                                <input class="field__input" id="requested-amount" name="requestedAmount" type="number"
+                                       inputmode="decimal" placeholder="e.g. 300" aria-describedby="requested-amount-error">
+                                <p class="field__error" id="requested-amount-error"></p>
+                            </div>
+                        </div>
+
+                        <div class="field mt-6">
+                            <label class="field__check">
+                                <input type="checkbox" id="consent" name="consent" aria-describedby="consent-error">
+                                <span>I confirm the details above are correct.</span>
+                            </label>
+                            <p class="field__error" id="consent-error"></p>
+                        </div>
+
+                        <button class="button button--primary mt-8 w-full sm:w-auto" type="submit">Check Eligibility</button>
+                    </form>
+
+                    <div class="eligibility__output" id="eligibility-result" aria-live="polite">
+                        <h3 class="result__title">Your result will appear here</h3>
+                        <p class="result__text">We look at your age, how long your MoMo account has been active and your monthly activity to estimate a loan limit.</p>
+                        <ul class="result__list">
+                            <li>You must be 18 or older.</li>
+                            <li>Your MoMo account must be at least 3 months old.</li>
+                            <li>Monthly activity must be at least $50.</li>
+                            <li>Loans range from $20 to $1,000.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ LOAN CALCULATOR ============ -->
+        <section id="calculator" class="section">
+            <div class="container">
+                <header class="section__header">
+                    <h2 class="section__title">Loan calculator</h2>
+                    <p class="section__text">Estimate your repayment before submitting your application.</p>
+                </header>
+
+                <div class="calculator">
+                    <form class="calculator__form" id="calculator-form" novalidate>
+                        <div class="field">
+                            <label class="field__label" for="calc-amount">Loan amount (USD)</label>
+                            <input class="field__input" id="calc-amount" type="number" min="0" value="500" inputmode="decimal">
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="calc-period">Repayment period</label>
+                            <select class="field__input" id="calc-period">
+                                <option value="3">3 months</option>
+                                <option value="6" selected>6 months</option>
+                                <option value="9">9 months</option>
+                                <option value="12">12 months</option>
+                                <option value="18">18 months</option>
+                                <option value="24">24 months</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="calc-rate">Annual interest rate (%)</label>
+                            <input class="field__input" id="calc-rate" type="number" min="0" step="0.1" value="10" inputmode="decimal">
+                        </div>
+                    </form>
+
+                    <div class="calculator__result" aria-live="polite">
+                        <p class="calculator__label">Estimated monthly payment</p>
+                        <p class="calculator__value" id="calc-monthly">$0.00</p>
+                        <dl class="calculator__details">
+                            <div>
+                                <dt>Total repayment</dt>
+                                <dd id="calc-total">$0.00</dd>
+                            </div>
+                            <div>
+                                <dt>Total interest</dt>
+                                <dd id="calc-interest">$0.00</dd>
+                            </div>
+                        </dl>
+                        <p class="calculator__note">This is an estimate only. Actual terms may vary.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ COUNTRIES ============ -->
+        <section id="countries" class="section section--tinted">
+            <div class="container">
+                <header class="section__header">
+                    <h2 class="section__title">Supported MTN countries</h2>
+                    <p class="section__text">Our platform is designed for supported MTN MoMo markets.</p>
+                </header>
+
+                <!-- Filled by js/main.js from the COUNTRIES list -->
+                <ul class="countries" id="countries-list"></ul>
+            </div>
+        </section>
+
+        <!-- ============ TESTIMONIALS ============ -->
+        <section id="testimonials" class="section">
+            <div class="container">
+                <header class="section__header">
+                    <h2 class="section__title">What our customers say</h2>
+                    <p class="section__text">Feedback from customers using our digital finance platform.</p>
+                </header>
+
+                <div class="testimonials" id="testimonials-carousel">
+                    <figure class="testimonial">
+                        <blockquote class="testimonial__quote">
+                            The application process was simple and easy to understand. I could complete everything from my phone.
+                        </blockquote>
+                        <figcaption class="testimonial__author">
+                            <strong>Michael K.</strong>
+                            <span>MTN MoMo customer</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="testimonial" hidden>
+                        <blockquote class="testimonial__quote">
+                            I knew my monthly payment before I applied, so there were no surprises later.
+                        </blockquote>
+                        <figcaption class="testimonial__author">
+                            <strong>Grace A.</strong>
+                            <span>Small business owner</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="testimonial" hidden>
+                        <blockquote class="testimonial__quote">
+                            Checking my eligibility took less than two minutes and the result was clear.
+                        </blockquote>
+                        <figcaption class="testimonial__author">
+                            <strong>Daniel O.</strong>
+                            <span>MTN MoMo customer</span>
+                        </figcaption>
+                    </figure>
+
+                    <div class="testimonials__dots" id="testimonials-dots" role="tablist" aria-label="Choose testimonial"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CALL TO ACTION ============ -->
+        <section class="bg-brand-900 text-white">
+            <div class="container py-20 text-center">
+                <h2 class="text-3xl font-bold sm:text-4xl">Ready to get started?</h2>
+                <p class="mx-auto mt-4 max-w-xl text-brand-100">Check your eligibility and start your application today.</p>
+                <a href="#eligibility" class="button button--primary mt-8">Check Eligibility</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer id="contact" class="footer">
+        <div class="container footer__grid">
+            <div>
+                <h2 class="footer__title">MoMo MTN</h2>
+                <p class="footer__text">Digital financial services designed to make access to finance simple, convenient and secure.</p>
+            </div>
+
+            <nav aria-label="Quick links">
+                <h2 class="footer__title">Quick links</h2>
+                <ul class="footer__list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#calculator">Loan Calculator</a></li>
+                    <li><a href="#countries">Countries</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <h2 class="footer__title">Services</h2>
+                <ul class="footer__list">
+                    <li>Loan applications</li>
+                    <li>Repayments</li>
+                    <li>Financial transfers</li>
+                    <li>Eligibility checking</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="footer__title">Contact</h2>
+                <ul class="footer__list">
+                    <li><a href="mailto:support@example.com">support@example.com</a></li>
+                    <li><a href="tel:+000000000000">+000 000 000 000</a></li>
+                    <li>24/7 support</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer__bottom">
+            <p>&copy; <span id="year">2026</span> MoMo MTN. All rights reserved.</p>
+            <p>MTN and MoMo are trademarks of their respective owners. Estimates on this site are for guidance only and are not an offer of credit.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>
